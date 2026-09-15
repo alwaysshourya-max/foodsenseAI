@@ -114,6 +114,7 @@
             justify-content: center;
             gap: 14px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
@@ -737,55 +738,87 @@
     </div>
 
     <script>
-        // Mock database of QR codes and food items
+        // Product database — all 20 QR codes are supported
         const foodDatabase = {
-            "organic_milk_123": { 
-                name: "Organic Milk", 
-                category: "dairy", 
-                shelfLife: 7,
+            "organic_milk_123": {
+                name: "Organic Milk", category: "dairy", shelfLife: 7,
                 tips: ["Use in smoothies", "Make yogurt", "Freeze for later use in cooking"]
             },
-            "wheat_bread_456": { 
-                name: "Whole Wheat Bread", 
-                category: "grains", 
-                shelfLife: 5,
+            "wheat_bread_456": {
+                name: "Whole Wheat Bread", category: "grains", shelfLife: 5,
                 tips: ["Make croutons", "Prepare bread pudding", "Freeze slices for toast"]
             },
-            "greek_yogurt_789": { 
-                name: "Greek Yogurt", 
-                category: "dairy", 
-                shelfLife: 14,
+            "greek_yogurt_789": {
+                name: "Greek Yogurt", category: "dairy", shelfLife: 14,
                 tips: ["Use in baking", "Make dips", "Freeze into yogurt pops"]
             },
-            "fresh_apples_101": { 
-                name: "Fresh Apples", 
-                category: "produce", 
-                shelfLife: 21,
+            "fresh_apples_101": {
+                name: "Fresh Apples", category: "produce", shelfLife: 21,
                 tips: ["Bake into pies", "Make applesauce", "Dehydrate for snacks"]
             },
-            "canned_beans_112": { 
-                name: "Canned Beans", 
-                category: "canned", 
-                shelfLife: 365,
+            "canned_beans_112": {
+                name: "Canned Beans", category: "canned", shelfLife: 365,
                 tips: ["Add to soups", "Make bean salads", "Mash for spreads"]
             },
-            "chicken_breast_131": { 
-                name: "Chicken Breast", 
-                category: "meat", 
-                shelfLife: 3,
+            "chicken_breast_131": {
+                name: "Chicken Breast", category: "meat", shelfLife: 3,
                 tips: ["Cook and freeze", "Make chicken salad", "Use in stir-fries"]
             },
-            "orange_juice_145": { 
-                name: "Orange Juice", 
-                category: "beverages", 
-                shelfLife: 10,
+            "orange_juice_145": {
+                name: "Orange Juice", category: "beverages", shelfLife: 10,
                 tips: ["Freeze into ice cubes", "Use in marinades", "Make smoothies"]
             },
-            "lettuce_161": { 
-                name: "Lettuce", 
-                category: "produce", 
-                shelfLife: 7,
+            "lettuce_161": {
+                name: "Lettuce", category: "produce", shelfLife: 7,
                 tips: ["Make wraps", "Add to smoothies", "Sauté as a side dish"]
+            },
+            "fresh_bananas_172": {
+                name: "Fresh Bananas", category: "produce", shelfLife: 7,
+                tips: ["Add to smoothies", "Make banana bread", "Freeze for later use"]
+            },
+            "cheddar_cheese_183": {
+                name: "Cheddar Cheese", category: "dairy", shelfLife: 21,
+                tips: ["Add to sandwiches", "Use in pasta", "Make cheese toast"]
+            },
+            "brown_rice_194": {
+                name: "Brown Rice", category: "grains", shelfLife: 365,
+                tips: ["Use in rice bowls", "Make fried rice", "Pair with vegetables"]
+            },
+            "eggs_205": {
+                name: "Eggs", category: "other", shelfLife: 28,
+                tips: ["Make omelettes", "Boil for quick meals", "Use in baking"]
+            },
+            "fresh_tomatoes_216": {
+                name: "Tomatoes", category: "produce", shelfLife: 7,
+                tips: ["Make sauces", "Add to salads", "Use in sandwiches"]
+            },
+            "potatoes_227": {
+                name: "Potatoes", category: "produce", shelfLife: 21,
+                tips: ["Make roasted potatoes", "Prepare mashed potatoes", "Add to curries"]
+            },
+            "carrots_238": {
+                name: "Carrots", category: "produce", shelfLife: 21,
+                tips: ["Add to salads", "Make soup", "Roast as a side dish"]
+            },
+            "paneer_249": {
+                name: "Paneer", category: "dairy", shelfLife: 7,
+                tips: ["Make paneer tikka", "Add to curries", "Use in sandwiches"]
+            },
+            "oats_250": {
+                name: "Oats", category: "grains", shelfLife: 365,
+                tips: ["Make oatmeal", "Add to smoothies", "Use in homemade granola"]
+            },
+            "strawberries_261": {
+                name: "Strawberries", category: "produce", shelfLife: 5,
+                tips: ["Add to smoothies", "Use in desserts", "Make fruit bowls"]
+            },
+            "orange_272": {
+                name: "Orange", category: "produce", shelfLife: 14,
+                tips: ["Eat fresh", "Make fresh juice", "Add to fruit salads"]
+            },
+            "butter_283": {
+                name: "Butter", category: "dairy", shelfLife: 30,
+                tips: ["Use for cooking", "Spread on toast", "Use in baking"]
             }
         };
 
